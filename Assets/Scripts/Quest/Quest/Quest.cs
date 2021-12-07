@@ -40,7 +40,7 @@ public class Quest : MonoBehaviour
         }
     }
 
-     void HandleGoalCompletedEvent(object _, GoalCompletedEvent completionEvent)
+    void HandleGoalCompletedEvent(object _, GoalCompletedEvent completionEvent)
     {
         bool allGoalsCompleted = Goals.All( goal => goal.IsComplete );
 
