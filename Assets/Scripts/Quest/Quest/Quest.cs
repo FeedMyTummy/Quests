@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
-    [Header("Info"), SerializeField]
+    [SerializeField]
     Info Information;
 
-    [Header("Reward"), SerializeField]
+    [SerializeField]
+    List<QuestGoal> Goals;
+
+    [SerializeField]
     List<QuestReward> m_Rewards;
     
     public bool IsComplete { get; protected set; }
     public event EventHandler<QuestCompletedEvent> OnQuestCompleted;
 
-    [SerializeField]
-    List<QuestGoal> Goals;
-
     EventManager m_EventManager;
-    IAwardable m_Awardable;
+    IRewardable m_Awardable;
 
     [Serializable]
     public struct Info
@@ -28,7 +28,7 @@ public class Quest : MonoBehaviour
         public string Description;
     }
 
-    public void Init(EventManager eventManager, IAwardable awardable)
+    public void Init(EventManager eventManager, IRewardable awardable)
     {
         m_EventManager = eventManager;
         m_Awardable = awardable;
@@ -59,9 +59,9 @@ public class Quest : MonoBehaviour
 
     void GiveReward()
     {
-        foreach (QuestReward reward in m_Rewards)
+        foreach (QuestReward questReward in m_Rewards)
         {
-            m_Awardable.Award(reward);
+            questReward.Reward(m_Awardable);
         }
     }
 }

@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour, IAwardable
+public class Player : MonoBehaviour, IXPRewardable, ICurrencyRewardable
 {
-    public void Award(QuestReward reward)
+    public void RewardXP(int amount)
     {
-        Debug.Log($"Rewarded: {reward.Description}");
+        Debug.Log($"XP Reward: {amount}");
+    }
+
+    public void RewardCurrency(int amount)
+    {
+        Debug.Log($"Currency Reward: {amount}");
     }
 }

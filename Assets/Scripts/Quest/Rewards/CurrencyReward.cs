@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class XPReward : QuestReward
+public class CurrencyReward : QuestReward
 {
     [SerializeField]
     int m_Amount = 1;
@@ -9,9 +9,9 @@ public sealed class XPReward : QuestReward
 
     public override void Reward(IRewardable awardable)
     {
-        if (awardable is IXPRewardable xpBearing)
+        if (awardable is ICurrencyRewardable currencyBearing)
         {
-            xpBearing.RewardXP(m_Amount);
+            currencyBearing.RewardCurrency(m_Amount);
         }
     }
 }
