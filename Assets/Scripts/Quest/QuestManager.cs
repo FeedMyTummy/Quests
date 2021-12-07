@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
     [SerializeField]
-    Quest m_Quest;
+    List<Quest> m_Quests;
 
     [SerializeField]
     EventManager m_EventManager;
@@ -13,6 +14,9 @@ public class QuestManager : MonoBehaviour
     
     void Start()
     {
-        m_Quest.Init(m_EventManager, m_Player);
+        foreach (Quest quest in m_Quests)
+        {
+            quest.Init(m_EventManager, m_Player);
+        }
     }
 }

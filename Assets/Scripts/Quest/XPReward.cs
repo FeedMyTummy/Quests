@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "XPReward", menuName = "Quest/Rewards/XP Reward")]
 public sealed class XPReward : QuestReward
 {
     [SerializeField]

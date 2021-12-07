@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Quest/Quest")]
-public class Quest : ScriptableObject
+public class Quest : MonoBehaviour
 {
     [Header("Info"), SerializeField]
     Info Information;
 
     [Header("Reward"), SerializeField]
-    QuestReward m_Reward;
+    List<QuestReward> m_Rewards;
     
     public bool IsComplete { get; protected set; }
     public event EventHandler<QuestCompletedEvent> OnQuestCompleted;
@@ -33,9 +32,6 @@ public class Quest : ScriptableObject
     {
         m_EventManager = eventManager;
         m_Awardable = awardable;
-
-        IsComplete = false;
-        OnQuestCompleted = null;
 
         foreach (QuestGoal goal in Goals)
         {
@@ -61,5 +57,11 @@ public class Quest : ScriptableObject
         OnQuestCompleted = null;
     }
 
-    void GiveReward() => m_Awardable.Award(m_Reward);
+    void GiveReward()
+    {
+        foreach (QuestReward reward in m_Rewards)
+        {
+            m_Awardable.Award(reward);
+        }
+    }
 }

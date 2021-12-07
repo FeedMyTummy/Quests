@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Goal", menuName = "Quest/Goals/Kill Goal")]
 public sealed class KillGoal : QuestGoal
 {
     [SerializeField]

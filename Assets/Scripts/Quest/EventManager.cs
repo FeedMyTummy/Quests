@@ -10,4 +10,10 @@ public class EventManager : MonoBehaviour
     {
         OnGameEvent?.Invoke(this, new KillEvent("test")); 
     }
+
+    [ContextMenu("Kill Skeleton")]
+    void KillSkeleton()
+    {
+        OnGameEvent?.Invoke(this, new KillEvent("skeleton")); 
+    }
 }

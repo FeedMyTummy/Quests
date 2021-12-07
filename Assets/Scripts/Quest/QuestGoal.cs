@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class QuestGoal: ScriptableObject
+public abstract class QuestGoal : MonoBehaviour
 {
     public abstract string Description { get; }
     public bool IsComplete => m_IsComplete;
@@ -14,10 +14,6 @@ public abstract class QuestGoal: ScriptableObject
 
     public virtual void Init(EventManager eventManager)
     {
-        m_CurrentAmount = 0;
-        m_IsComplete = false;
-        RemoveEventListener();
-        
         m_EventManager = eventManager;
         m_EventManager.OnGameEvent += HandleGameEvent;;
     }
