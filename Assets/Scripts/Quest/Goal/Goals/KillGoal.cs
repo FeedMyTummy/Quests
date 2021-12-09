@@ -35,5 +35,5 @@ public sealed class KillGoal : QuestGoal
         Evaluate();
     }
 
-    bool IsTargetID(KillEvent killEvent) => killEvent.ID == m_TargetID;   
+    bool IsTargetID(KillEvent killEvent) => killEvent.DeadID == m_TargetID;   
 }

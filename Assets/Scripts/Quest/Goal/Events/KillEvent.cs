@@ -1,10 +1,11 @@
 public class KillEvent : GameEvent
 {
-    public readonly string ID;
-    public override string Description => "Kill Event";
+    public readonly string DeadID;
+    public readonly string InstigatorID;
 
-    public KillEvent(string id)
+    public KillEvent(string deadID, string instigatorID)
     {
-        ID = id;
+        DeadID = deadID;
+        InstigatorID = instigatorID;
     }
 }
