@@ -5,7 +5,7 @@ public class EventManager : MonoBehaviour
 {
     public event EventHandler<GameEvent> OnGameEvent;
 
-    public void DeathOfId(KillEvent killEvent)
+    public void DeathEvent(KillEvent killEvent)
     {
         OnGameEvent?.Invoke(this, killEvent);
     }

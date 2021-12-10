@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour, IXPRewardable, ICurrencyRewardable
+public class QuestListener : MonoBehaviour, IXPRewardable, ICurrencyRewardable
 {
     public void RewardXP(int amount)
     {

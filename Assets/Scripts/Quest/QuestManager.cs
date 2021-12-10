@@ -10,13 +10,13 @@ public class QuestManager : MonoBehaviour
     EventManager m_EventManager;
 
     [SerializeField]
-    Player m_Player;
+    QuestListener m_QuestListener;
     
     void Start()
     {
         foreach (Quest quest in m_Quests)
         {
-            quest.Init(m_EventManager, m_Player);
+            quest.Init(m_EventManager, m_QuestListener);
         }
     }
 }
