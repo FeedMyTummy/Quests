@@ -21,19 +21,19 @@ public sealed class KillGoal : QuestGoal
 
     protected override void HandleGameEvent(object _, GameEvent gameEvent)
     {
-        KillEvent killEvent = gameEvent as KillEvent;
+        DeathEvent deathEvent = gameEvent as DeathEvent;
 
-        if (killEvent == null) return;
+        if (deathEvent == null) return;
 
-        if (IsTargetID(killEvent))
-            TargetKilled(killEvent);
+        if (IsTargetID(deathEvent))
+            TargetKilled();
     }
 
-    void TargetKilled(KillEvent killEvent)
+    void TargetKilled()
     {
         m_CurrentAmount++;
         Evaluate();
     }
 
-    bool IsTargetID(KillEvent killEvent) => killEvent.DeadID == m_TargetID;   
+    bool IsTargetID(DeathEvent deathEvent) => deathEvent.DeadID == m_TargetID;   
 }

@@ -5,20 +5,20 @@ public class EventManager : MonoBehaviour
 {
     public event EventHandler<GameEvent> OnGameEvent;
 
-    public void DeathEvent(KillEvent killEvent)
+    public void Invoke(DeathEvent deathEvent)
     {
-        OnGameEvent?.Invoke(this, killEvent);
+        OnGameEvent?.Invoke(this, deathEvent);
     }
 
     [ContextMenu("Kill Beast")]
     void KillBeast()
     {
-        OnGameEvent?.Invoke(this, new KillEvent("test", "editor")); 
+        OnGameEvent?.Invoke(this, new DeathEvent("test", "editor")); 
     }
 
     [ContextMenu("Kill Skeleton")]
     void KillSkeleton()
     {
-        OnGameEvent?.Invoke(this, new KillEvent("skeleton", "editor")); 
+        OnGameEvent?.Invoke(this, new DeathEvent("skeleton", "editor")); 
     }
 }
