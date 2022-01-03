@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
-    [SerializeField]
-    Info Information;
+    [SerializeField] Info Information;
 
-    [SerializeField]
-    List<QuestGoal> Goals;
+    [SerializeField] List<QuestGoal> Goals;
 
-    [SerializeField]
-    List<QuestReward> m_Rewards;
+    [SerializeField] List<QuestReward> m_Rewards;
     
     public bool IsComplete { get; protected set; }
     public event EventHandler<QuestCompletedEvent> OnQuestCompleted;
